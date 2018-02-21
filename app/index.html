@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+  <!--elementos do head (link,scripts,meta)-->
+  <!-- - include/head.pug-->
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Content-Language" content="en">
+    <title>Título da Página</title>
+    <meta name="description" content="Descrição da Pagina">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#513396">
+    <meta property="og:url" content="">
+    <meta property="og:title" content="Título da Página">
+    <meta property="og:description" content="Descrição da Pagina">
+    <meta property="og:image" content="https://yexx.github.io/richpreview.png">
+    <meta property="og:image:alt" content="Título da Página">
+    <script>
+      !function(e){"use strict";var n=function(n,t,o){function i(e){if(a.body)return e();setTimeout(function(){i(e)})}function r(){l.addEventListener&&l.removeEventListener("load",r),l.media=o||"all"}var d,a=e.document,l=a.createElement("link");if(t)d=t;else{var f=(a.body||a.getElementsByTagName("head")[0]).childNodes;d=f[f.length-1]}var s=a.styleSheets;l.rel="stylesheet",l.href=n,l.media="only x",i(function(){d.parentNode.insertBefore(l,t?d:d.nextSibling)});var u=function(e){for(var n=l.href,t=s.length;t--;)if(s[t].href===n)return e();setTimeout(function(){u(e)})};return l.addEventListener&&l.addEventListener("load",r),l.onloadcssdefined=u,u(r),l};"undefined"!=typeof exports?exports.loadCSS=n:e.loadCSS=n}("undefined"!=typeof global?global:this);!function(t){if(t.loadCSS){var e=loadCSS.relpreload={};if(e.support=function(){try{return t.document.createElement("link").relList.supports("preload")}catch(t){return!1}},e.poly=function(){for(var e=t.document.getElementsByTagName("link"),r=0;r<e.length;r++){var n=e[r];"preload"===n.rel&&"style"===n.getAttribute("as")&&(t.loadCSS(n.href,n,n.getAttribute("media")),n.rel=null)}},!e.support()){e.poly();var r=t.setInterval(e.poly,300);t.addEventListener&&t.addEventListener("load",function(){e.poly(),t.clearInterval(r)}),t.attachEvent&&t.attachEvent("onload",function(){t.clearInterval(r)})}}}(this);</script>
+    <!-- CSS-->
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400i,600,600i" rel="preload" as="style" onload="this.rel='stylesheet'">
+    <link href="css/vendor.css" rel="stylesheet" as="style" onload="this.rel='stylesheet'">
+    <link href="css/main.css" rel="preload" as="style" onload="this.rel='stylesheet'">
+    <link href="css/vendor.css" rel="preload" as="style" onload="this.rel='stylesheet'">
+    <noscript>
+      <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700,900" rel="stylesheet">
+      <link href="css/main.css" rel="stylesheet">
+      <link href="css/vendor.css" rel="stylesheet">
+    </noscript>
+  </head>
+  <body>
+    <!--header da pag-->
+    <!-- - include/header.pug-->
+    <header class="ta-center"><img src="logo.jpg" alt="">
+      <h1>Nome do projeto</h1>
+    </header>
+    <!--conteudo principal-->
+    <main id="app">
+      <section id="topo">
+        <div class="wrapper">
+          <p>Texto</p><svg viewBox="0 0 640 560" xmlns="http://www.w3.org/2000/svg"></svg>
+        </div>
+      </section>
+    </main>
+    <!--footer da pagina-->
+    <!-- - include/footer.pug-->
+    <footer class="footer ta-center">
+      <p>Footer</p>
+    </footer>
+    <!--scripts gerais-->
+    <script src="js/vendor.js" defer></script>
+    <script src="js/app.js" defer></script>
+  </body>
+</html>

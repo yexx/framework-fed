@@ -1,0 +1,78 @@
+$body-size = 16px;
+$text-color = #000;
+
+// Colors
+
+$color1 = #666;
+$color1-l = lighten($color1,25%);
+$color1-d = darken($color1,25%);
+
+//
+// Mixins
+//
+
+/* font size by em */
+emsize(x)
+    font-size (x/$body-size)em;
+
+/* fix floats */
+clearfix()
+    &:after
+        content ''
+        display table
+        clear both
+
+/* Vertical Align Center Dib Method helper*/
+dib-center()
+    &:before
+        content '';
+        display inline-block; width 1px; height 100%;
+        margin-right -1px;
+        vertical-align middle;
+
+
+/* background gradient */
+background-linear-gradient(startPoint, startColor, startInterval, endColor, endInterval)
+    background-color startColor
+    background-image -webkit-linear-gradient(startPoint, startColor startInterval, endColor endInterval)
+    background-image -moz-linear-gradient(startPoint, startColor startInterval, endColor endInterval)
+    background-image -ms-linear-gradient(startPoint, startColor startInterval, endColor endInterval)
+    background-image -o-linear-gradient(startPoint, startColor startInterval, endColor endInterval)
+    background-image linear-gradient(startPoint, startColor startInterval, endColor endInterval)
+
+/* Image replacement */
+ir(w, h, url, display = false)
+
+    if display != false
+        display: block;
+
+    width w; height h;
+    max-width 100%;
+    background url(url) center no-repeat;
+    font: 0/0 a; text-shadow none; color transparent;
+
+/* Media Queries */
+
+//Only Desktops
+desktop()
+    @media (min-width: 1025px)
+        {block}
+        
+// tablets
+tablets()
+    @media (max-width: 1024px)
+        {block}
+
+// Tablets to cellphones
+tablet-mobile()
+    @media (max-width: 900px)
+        {block}
+
+//Portrait Cellphones and beyond
+mobile()
+    @media (max-width: 600px)
+        {block}
+
+iphone5()
+    @media (max-width: 340px)
+        {block}

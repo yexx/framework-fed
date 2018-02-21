@@ -1,0 +1,28 @@
+// - include/head.pug
+
+- 
+	var title = "Título da Página";
+	var metaDesc = "Descrição da Pagina"
+
+head
+	meta(charset='utf-8')
+	meta(http-equiv='X-UA-Compatible', content='IE=edge')
+	meta(http-equiv="Content-Language" content="en")
+	title= title
+	meta(name="description",content=metaDesc)
+	meta(name='viewport', content='width=device-width, initial-scale=1')
+	meta(name="theme-color", content="#513396")
+
+	//- og title
+	meta(property="og:url", content="")
+	meta(property="og:title", content=title)
+	meta(property="og:description", content=metaDesc)
+	meta(property="og:image", content="https://yexx.github.io/richpreview.png")
+	meta(property="og:image:alt", content=title)
+
+	script
+		include s-loadCSS.min.js
+		include s-preload-poly.min.js
+
+	//-CSS
+	include css.pug

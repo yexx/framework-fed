@@ -1,0 +1,72 @@
+// Importa Variaveis e resets
+//----------------------------------------------
+
+	//Variaveis
+	@import '_variables'
+
+	//CSS Reset
+	//@import '_reset'
+	@import '../../node_modules/normalize.css/normalize.css'
+
+	//Fonts
+	@import '_fonts'
+
+	//Keyframes
+	@import '_keyframes'
+
+//
+// Estilos gerais
+// --------------------------------------------------
+html
+	height 100%; font 100% 'Roboto', Arial, Helvetica, sans-serif; color #313131;
+body
+	position relative; min-height 100%; margin 0; background #f9f9f9; font-family: 'Roboto', Arial, sans-serif; font-size $body-size;
+
+*, *:before, *:after
+	-webkit-box-sizing: border-box; 
+	-moz-box-sizing: border-box; 
+	box-sizing: border-box;
+
+a
+	text-decoration: none; color inherit;
+
+//Titles
+h1,h2,h3,h4,h5,h6,p
+	margin: 0px 0px 8px;
+	
+//List
+ul
+	margin 0; padding 0; list-style: none;
+	
+//Text-align
+.ta-center 
+	text-align center;
+.ta-right 
+	text-align right;
+
+//wrapper
+.wrapper
+	position: relative; max-width 1200px; margin 0 auto; padding: 0 15px; box-sizing border-box; clearfix();
+	
+	&.flex
+		display flex;
+
+//Menu
+	
+// Main content
+header
+	display block;
+	
+main
+	background #166b98;
+	
+	> section
+		padding 10px 0;
+
+footer
+	display block;	
+	
+/* Sections */
+@import 'sections/*'
+
+/* MEDIA QUERIES */

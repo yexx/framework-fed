@@ -1,0 +1,20 @@
+doctype html
+html
+	//elementos do head (link,scripts,meta)
+	include includes/head.pug
+
+	body
+
+		//header da pag
+		include includes/header.pug
+
+		//conteudo principal
+		main#app
+			include sections/section-example.pug
+
+		//footer da pagina
+		include includes/footer.pug
+
+		//scripts gerais
+		script(src="js/vendor.js", defer)
+		script(src="js/app.js", defer)
