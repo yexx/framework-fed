@@ -6,7 +6,6 @@ const minify = require('gulp-minify');          // JS Minifier
 const cleanCSS = require('gulp-clean-css');     // CSS Minifier
 const runSequence = require('run-sequence');    // Sequencer
 const watch = require('gulp-watch');            // Watcher
-const webserver = require('gulp-webserver');    // Server
 
 //Pasta com os arquivos
 var jsInput = 'resources/scripts/*.js';
@@ -25,19 +24,6 @@ var jsPluginsInput = 'resources/scripts/plugins/*.js';
 var jsOutput = 'app/js/';
 var cssOutput = 'app/css/';
 var htmlOutput = 'app/';
-
-//Webserver
-gulp.task('webserver', function() {
-  gulp.src('app')
-    .pipe(webserver({
-      livereload: false,
-      open: true,
-      fallback: 'index.html',
-      middleware: [{
-
-      }]
-    }));
-});
 
 // --- Junta e minifica os scripts
 //Scripts do app
@@ -119,7 +105,6 @@ gulp.task('watch',function() {
 
 });
 
-
 gulp.task('default', function(callback) {
-  runSequence('build', 'watch', 'webserver');
+  runSequence('build', 'watch');
 });
