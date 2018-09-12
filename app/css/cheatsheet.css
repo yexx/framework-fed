@@ -1,0 +1,74 @@
+#cheatsheet article div {
+  margin-bottom: 12px;
+}
+#cheatsheet article pre {
+  padding: 20px;
+  background: #3f3f3f;
+  border-radius: 5px;
+  color: #e0e0e0;
+}
+#cheatsheet article h1.ir-example {
+  display: inline-block;
+  width: 260px;
+  max-width: 100%;
+  height: 310px;
+  background: url("../images/test/logo-1.png") center no-repeat;
+  background-size: contain;
+  font: 0/0 a;
+  text-shadow: none;
+  color: transparent;
+}
+#cheatsheet article h1.ir-example-resp {
+  margin-left: 15px;
+  display: inline-block;
+  width: 100%;
+  max-width: 260px;
+  background: url("../images/logo-2.png") center no-repeat;
+  background-size: contain;
+  font: 0/0 a;
+  text-shadow: none;
+  color: transparent;
+  animation: animwidth 1s alternate infinite;
+}
+#cheatsheet article h1.ir-example-resp:before {
+  content: '';
+  display: block;
+  width: 100%;
+  padding-bottom: 119.23076923076923%;
+}
+#cheatsheet article h1.ir-example,
+#cheatsheet article h1.ir-example-resp {
+  vertical-align: middle;
+}
+@-moz-keyframes animwidth {
+  0% {
+    width: 100px;
+  }
+  100% {
+    width: 200px;
+  }
+}
+@-webkit-keyframes animwidth {
+  0% {
+    width: 100px;
+  }
+  100% {
+    width: 200px;
+  }
+}
+@-o-keyframes animwidth {
+  0% {
+    width: 100px;
+  }
+  100% {
+    width: 200px;
+  }
+}
+@keyframes animwidth {
+  0% {
+    width: 100px;
+  }
+  100% {
+    width: 200px;
+  }
+}

@@ -1,5 +1,5 @@
 $body-size = 16px;
-$text-color = #000;
+$text-color = #313131;
 
 // Colors
 
@@ -41,14 +41,33 @@ background-linear-gradient(startPoint, startColor, startInterval, endColor, endI
     background-image linear-gradient(startPoint, startColor startInterval, endColor endInterval)
 
 /* Image replacement */
-ir(w, h, url, display = false)
+ir(url, w=null, h=null, display = false, responsive=false)
+    
+    imgSrc = pathjoin('../../app/images/', url);
+    imgPath = pathjoin('../images/', url)
+    
+    if w == null
+        w = image-size(imgSrc)[0]
+
+    if h == null
+        h = image-size(imgSrc)[1]
 
     if display != false
-        display: block;
+        display: inline-block;
 
-    width w; height h;
-    max-width 100%;
-    background url(url) center no-repeat;
+    if responsive == false
+        width w; max-width 100%;
+        height h;
+    else
+        width 100%; max-width w;
+        
+        &:before
+            content '';
+            display: block; width 100%;
+            padding-bottom percentage(h/w);
+
+    background url(imgPath) center no-repeat;
+    background-size: contain;
     font: 0/0 a; text-shadow none; color transparent;
 
 /* Media Queries */
@@ -57,7 +76,7 @@ ir(w, h, url, display = false)
 desktop()
     @media (min-width: 1025px)
         {block}
-        
+
 // tablets
 tablets()
     @media (max-width: 1024px)

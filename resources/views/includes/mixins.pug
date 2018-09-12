@@ -1,0 +1,7 @@
+mixin slackGallery(galleryItems)
+    div.slickGallery
+        for item in galleryItems
+            figure
+                img(src=item.imgsrc, alt=item.imgalt)
+                figcaption
+                    p= item.imgcaption

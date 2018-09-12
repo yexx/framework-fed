@@ -1,0 +1,137 @@
+doctype html
+html
+    //elementos do head (link,scripts,meta)
+    include includes/head.pug
+    link(href='css/cheatsheet.css', rel="preload", as="style", onload="this.rel='stylesheet'")
+
+    body
+
+        include includes/mixins
+
+        aside#cheatsheet
+            header
+                .wrapper
+                    h1 Use this as a reference for your styles, mixins, and patterns
+                    p Let's modularize stuff (and use less code)
+
+            article
+                .wrapper
+                    span .wrapper
+
+                div.wrapper
+                    h2 Default Styles
+                    
+                    h3 Titles
+                    div
+                        h1 A h1 Heading Example
+                        h2 A h2 Heading Example
+                        h3 A h3 Heading Example
+                        h4 A h4 Heading Example
+                        h5 A h5 Heading Example
+
+                    h3 Titles and SubTitles
+                    div
+                        h1 A h1 Heading followed by text
+                        p Hi, I am a subtitle
+
+                        h2 A h2 heading followed by text
+                        p Hi, I am a subtitle
+
+                    h3 Paragraphs and Text
+                    div
+                        p A short paragraph
+                        p A medium paragraph with a lot of text that doesn't mean anything
+                        p A long paragraph with more text than the one before, but yet without any #[strong meaning] too, i just want this to break lines so we can test it on the browser, #[em because you know how it is], no one tests anything. But that doesn't mean that we should't. So lets write something to test this!
+
+                        p 1234567890 Numbers
+                        p 9215478535 Random numbers
+
+                        p Text with #[a(href="#") links]
+
+                    h3 Buttons
+                    div
+                        a(role="button" href="#") Buttons
+                        buttons Default buttons
+
+                        a(role="button" href="#") Larger buttons
+                        buttons Larger Deafult buttons
+
+                    div
+                        form
+                            p Everyone's favourite, forms!
+
+                            ul
+                                li: label
+                                    p Type text
+                                    input(type="text",placeholder="Text")
+                                li: label
+                                    p Type number
+                                    input(type="number",placeholder="Number")
+                                li: label
+                                    p Type telephone
+                                    input(type="tel",placeholder="Telephone")
+                                li: label
+                                    p Type email
+                                    input(type="email",placeholder="Email")
+                                li: label
+                                    p Textarea
+                                    textarea(placeholder="textarea")
+                                li
+                                    button(type="submit") Submit
+
+                div.wrapper
+                    h2 Mixins
+
+                    h3 Galleries
+                    div
+                        -
+                            var items = [
+                                { imgsrc: "http://placeimg.com/600/400/any", imgalt: "anything", imgcaption: "Anything"},
+                                { imgsrc: "http://placeimg.com/600/400/tech", imgalt: "technology", imgcaption: "Technology"},
+                                { imgsrc: "http://placeimg.com/600/400/animals", imgalt: "animals", imgcaption: "Animals"},
+                                { imgsrc: "http://placeimg.com/600/400/people", imgalt: "people", imgcaption: "People"},
+                            ];
+
+                        +slackGallery(items)
+
+                        pre: code.
+                            *.pug
+                            #{'+slackGallery(items)'}
+
+                        p where items:
+                        pre: code.
+                            var items = [
+                               { imgsrc: "image path", imgalt: "image alt text", imgcaption: "Figcaption Text"}
+                            ];
+
+                    h3 Image Replacement
+                    div
+                        h1.ir-example Logo Example
+
+                        h1.ir-example-resp Responsive Image Example
+
+                        pre: code.
+                            ir(
+                                url: path without the '../images',
+                                w: width (if null it gets from the path),
+                                h: height (if null it gets from the path),
+                                display: false (if true applies display: inline-block),
+                                responsive: false (responsive height)
+                            )
+
+                            h1.ir-example
+                                ir(url: 'test/logo-1.png', display: true)
+
+                            h1.ir-example-resp
+                                ir(url: 'logo-2.png', display:true, responsive: true)
+
+                        blockquote
+                            p Logos by #[a(href='https://br.freepik.com/vetores-gratis/colecao-de-logotipo-moderno_1718068.htm') Freepik]
+                figure
+
+            footer
+                p Edit this as you please, this should fit your project, not yout project fit this
+
+        //scripts gerais
+        script(src="js/vendor.js", defer)
+        script(src="js/app.js", defer)

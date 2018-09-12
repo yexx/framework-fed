@@ -1,0 +1,29 @@
+@require '_variables.styl'
+
+@keyframes animwidth
+    0%
+        width: 100px;
+    100%
+        width: 200px;
+
+#cheatsheet
+    article
+        div
+            margin-bottom  12px;
+        
+        pre
+            padding: 20px;
+            background #3f3f3f;
+            border-radius: 5px;
+            color: #e0e0e0;
+
+        h1.ir-example
+            ir(url: 'test/logo-1.png', display: true)
+
+        h1.ir-example-resp
+            margin-left 15px;
+            ir(url: 'logo-2.png', display: true, responsive: true)
+            animation: animwidth 1s alternate infinite;
+        
+        h1.ir-example, h1.ir-example-resp
+            vertical-align middle;

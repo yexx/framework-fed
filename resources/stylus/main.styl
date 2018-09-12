@@ -1,72 +1,76 @@
-// Importa Variaveis e resets
+// Variables, Mixins and Resets
 //----------------------------------------------
 
-	//Variaveis
-	@import '_variables'
+//Variaveis
+@require '_variables'
 
-	//CSS Reset
-	//@import '_reset'
-	@import '../../node_modules/normalize.css/normalize.css'
+//Fonts
+@require '_fonts'
 
-	//Fonts
-	@import '_fonts'
+//CSS Reset
+@require '../../node_modules/normalize.css/normalize.css'
 
-	//Keyframes
-	@import '_keyframes'
+//Slick basic style
+@require '../../node_modules/slick-carousel/slick/slick.css'
 
 //
-// Estilos gerais
+// General Styles
 // --------------------------------------------------
-html
-	height 100%; font 100% 'Roboto', Arial, Helvetica, sans-serif; color #313131;
-body
-	position relative; min-height 100%; margin 0; background #f9f9f9; font-family: 'Roboto', Arial, sans-serif; font-size $body-size;
 
 *, *:before, *:after
-	-webkit-box-sizing: border-box; 
-	-moz-box-sizing: border-box; 
-	box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+
+html
+    height 100%; color $text-color;
+
+body
+    min-height 100%; 
+    background $bg-color;
+    font-family: 'Roboto', sans-serif;
+    if $body-size != "16px"
+        font-size $body-size;
 
 a
-	text-decoration: none; color inherit;
+    text-decoration: none; color inherit;
 
-//Titles
-h1,h2,h3,h4,h5,h6,p
-	margin: 0px 0px 8px;
-	
 //List
 ul
-	margin 0; padding 0; list-style: none;
-	
+    margin 0; padding 0; list-style: none;
+
 //Text-align
-.ta-center 
-	text-align center;
-.ta-right 
-	text-align right;
+.ta-center
+    text-align center;
+.ta-right
+    text-align right;
 
 //wrapper
 .wrapper
-	position: relative; max-width 1200px; margin 0 auto; padding: 0 15px; box-sizing border-box; clearfix();
-	
-	&.flex
-		display flex;
+    position: relative; max-width 1200px; margin 0 auto; padding: 0 15px; box-sizing border-box; clearfix();
+
+    &.flex
+        display flex;
 
 //Menu
-	
+
 // Main content
 header
-	display block;
-	
+    display block;
+
 main
-	background #166b98;
-	
-	> section
-		padding 10px 0;
+    background #166b98;
+
+    > section
+        padding 10px 0;
 
 footer
-	display block;	
-	
+    display block;
+
 /* Sections */
-@import 'sections/*'
+@require 'sections/*'
+
+//Keyframes
+@require '_keyframes'
 
 /* MEDIA QUERIES */

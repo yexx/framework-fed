@@ -7,23 +7,26 @@ const cleanCSS = require('gulp-clean-css');     // CSS Minifier
 const runSequence = require('run-sequence');    // Sequencer
 const watch = require('gulp-watch');            // Watcher
 
-//Pasta com os arquivos
-var jsInput = 'resources/scripts/*.js';
-var cssInput = 'resources/stylus/*.styl';
-var htmlInput = 'resources/views/*.pug';
-var imgInput = ['resources/images/*.{jpg,png}','resources/images/**/*.{jpg,png}']
+//Resource files input
+const jsInput = 'resources/scripts/*.js';
+const cssInput = 'resources/stylus/*.styl';
+const htmlInput = 'resources/views/*.pug';
 
-//Caminho para assistir
-var htmlWatch = ['resources/views/*.pug','resources/views/*/*.pug'];
-var cssWatch = ['resources/stylus/*.styl','resources/stylus/*/*.styl'];
+//NPM and plugins JS paths
+var jsPluginsInput = [
+  'resources/scripts/plugins/*.js',
+  'node_modules/slick-carousel/slick/slick.js'
+];
 
-//Pasta com os pluginsJS
-var jsPluginsInput = 'resources/scripts/plugins/*.js';
-
-//Pasta de saida
+//App Output folder
 var jsOutput = 'app/js/';
 var cssOutput = 'app/css/';
 var htmlOutput = 'app/';
+
+//Watch
+const jsWatch = ['resources/scripts/*.js', 'resources/scripts/plugins/*.js']
+const htmlWatch = ['resources/views/*.pug','resources/views/*/*.pug'];
+const cssWatch = ['resources/stylus/*.styl','resources/stylus/*/*.styl'];
 
 // --- Junta e minifica os scripts
 //Scripts do app
@@ -42,7 +45,7 @@ gulp.task('scripts-app', function() {
 
 //Plugins terceiros
 gulp.task('scripts-vendor', function() {
-  return gulp.src(['resources/scripts/plugins/*.js','!resources/scripts/plugins/_*.js'])
+  return gulp.src(jsPluginsInput)
     .pipe(concat('vendor.js'))
     .pipe(minify({
       ext: {
