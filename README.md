@@ -1,79 +1,78 @@
-# Framework FED
+# Simplified LP Template
 
-Este é o framework utilizado para desenvolvimento rápido de LPs (Landing Pages) ou SPAs (Single-Page Applications).
-Utilizando de praticas como o carregamento protelado do CSS e do JS para melhorar o carregamento da página e a experiência do Usuário
+This is a template created to develop Landing Pages, separating every section and component, with a structure that incentivizes the modularization of code, to facilitate maintenance and speed up the development.
 
-### Tecnologias Usadas / Métodos Aplicados
+This template incentivizes the use of methods that give a better accessibility, like prioritize rendering and the above the fold content, deferring the styles and scripts, resulting in a better experience
+
+### Tecnologies used
 - [Pug](https://pugjs.org/) (Pré-Processador de HTML)
 - [Stylus](http://stylus-lang.com/) (Pré-processador de CSS)
 - [Normalize.css](https://necolas.github.io/normalize.css/) (CSS Reset)
-- [MailerPHP](https://github.com/PHPMailer/PHPMailer) (Biblioteca para envio de emails em PHP)
 
-> Em caso de dúvida com o uso das bibliotecas, consultar a documentação
-> indicada no link dos mesmos.
+> If you have any doubt or question about the use of the libraries, please check the documentation on the links above
 
-### Preparando o Ambiente
+### Methodologies
+- Above the folder material
+    - https://www.optimizely.com/optimization-glossary/above-the-fold/
+    - https://developers.google.com/speed/docs/insights/PrioritizeVisibleContent
 
-Pré-requisitos:
-* [Node.JS](https://nodejs.org/en/)
+### Getting ready
 
-Clone o projeto. Depois entre na pasta e use o comando `npm install` para instalar as dependencias necessárias.
+Prerequirements:
+* [Node.JS ](https://nodejs.org/en/)
 
-### Como utilizar o Gulp
+Fork or clone the project. Or download and copy the contents of the folder.
+After that, install the dependencies with `npm install`
 
-Comandos
+### Gulp Commands
 
 `gulp`
-- Comando padrão. Compila os arquivos, gera o build, inicia o *watch* e o *webserver*
+- Default command. Compile all files, generating the build and start the *watch*
 
 `gulp css`
-- Compila os arquivos *.styl* em CSS
+- Compile all the styles *.styl* to CSS
 
 `gulp views`
-- Compila os arquivos *.pug* em HTML
+- Compile all *.pug* files to HTML
 
 `gulp scripts`
-- Compila e minifica os arquivos JS
+- Compile and minify all the styles
 
-`gulp webserver`
-- Roda o servidor local direto pelo gulp
-
-### Estrutura de Pastas
+### Folder structure
 ```
-+-- resources
++-- resources                   // All the raw files
+|
 |	+-- scripts 				// Scripts
-|	|	+-- plugins				// Utilize esta pasta para os plugins (como VueJS, Slick ou Selectric)
-|	|	main.js					// Seu script principal
+|	|	+-- plugins				// If you download a JS plugin or librarie put on this folder (como VueJS, Slick ou Selectric)
+|	|	main.js					// Your main script
 |
-|	+-- stylus					// Estilos (CSS)
-|	|	+-- inline				// CSS que serão incluidos inline (primeira dobra)
-|	|	+-- plugins				// CSS de plugins como Slick ou Selectric
-|	|	+-- sections			// CSS das sessões da página (header, popups)
-|	|	_fonts.styl				// @font-faces
-|	|	_keyframes.styl			// Keyframes para animaçoes
-|	|	_variables.styl			// Variaveis e Mixins
-|	|	main.styl				// Importa todos os outros, e estilos comuns					
+|	+-- stylus					// Styles (CSS)
+|	|	+-- inline				// Styles that will be put inline (for the Above the Fold content)
+|	|	+-- plugins				// Styles from third-party plugins
+|	|	+-- sections			// Style from every section created go here (header, popups)
+|	|	_fonts.styl				// @font-faces for imported fonts
+|	|	_keyframes.styl			// Animation Keyframes( or animation mixins)
+|	|	_variables.styl			// Stylus variables and general mixins
+|	|	main.styl				// Style common to all the page, and import all other styles above(but inline)
 |
-|	+-- views
-|	|	+-- includes			// Arquivos que serão repetidos entre as páginas
-|	|	|	head.pug			// Tag <head> com metatags css entre outros
-|	|	|	css.pug				// Chamadas do CSS
-|	|	|	loader.pug			// Loader inicial da página
-|	|	|	s-LoadCSS.js		// Fallback para o carregamento assincrono do CSS
-|	|	|	s-preload-poly.min	// Fallback para o carregamento assincrono do CSS
+|	+-- views                   // Views (pug) [Any other page created go here]
+|	|	+-- includes			// Files that will be included and repeated in the pages
+|	|	|	head.pug			// <head> tag and other attributes, like metatags and css
+|	|	|	css.pug				// CSs calls (imported into head)
+|	|	|	loader.pug			// A Loader for the page (if you need)
+|	|	|	s-LoadCSS.js		// CSS defering script
+|	|	|	s-preload-poly.min	// CSS defering script polyfill
 |
-|	|	+-- sections			// Sessoes da página (header,footer,...)
+|	|	+-- sections			// Page sections (header,footer,...)
 |
-|	|	+-- svgs				// Arquivos para uso de SVG Inline
+|	|	+-- svgs				// SVGs that will be imported inline
+|   |   index.pug               // Index page
 |
-+-- app							// Arquivos para visualização
-|	*.html
-|	+-- css
-|	+-- js
-|	+-- MailerPHP 				// Arquivos para o envio de email em PHP
-|	+-- mail 					
-|	|	mail.php				// PHP com o texto para o envio do email
++-- app							// Compiled files
+|	*.html                      // Compiled HTML files
+|	+-- css                     // Compiled styles
+|	+-- js                      // Compiled Scripts
 |	+-- (images/videos/fonts)
 ```
 
-> Não esqueça de atualizar o `package.json` com os dados do projeto :) 
+> Don't forget to update the `package.json` :) 
